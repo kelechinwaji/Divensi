@@ -19,15 +19,11 @@ export class TasksController {
     createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task>{
       return this.tasksService.createTask(createTaskDto)
     }
-    // @Get()
-    // getTasks(@Query() filterDto: GetTaskFilterDto):Task[]{
-    //   if(Object.keys(filterDto).length){
-    //      return this.tasksServices.getTaskWithFilters(filterDto);
-    //   } else{
-    //     return this.tasksServices.getAllTask();  
-        
-    //   }
-    // }
+    
+    @Delete('/:id')
+    deleteTask(@Param('id') id: string): Promise<void>{
+      return this.tasksService.deleteTask(id)
+    }
 
     //  @Get('/:id')
     //  getTaskById(@Param(' id') id: string): Task{
