@@ -11,7 +11,7 @@ export class AuthService {
     private userRepository: Repository<User>,
   ) {}
 
-  async createUser(authCredentialsDto: AuthCredentialsDto): Promise<User> {
+  async createUser(authCredentialsDto: AuthCredentialsDto): Promise<void> {
     const { username, password } = authCredentialsDto;
 
     const user = this.userRepository.create({
@@ -20,6 +20,6 @@ export class AuthService {
     });
 
     await this.userRepository.save(user);
-    return user;
+    
   }
 }
