@@ -38,7 +38,7 @@ export class TasksController {
 
   @Post()
   createTask(@Body() createTaskDto: CreateTaskDto, @GetUser() user: User): Promise<Task> {
-    return this.tasksService.createTask(createTaskDto);
+    return this.tasksService.createTask(createTaskDto, user);
   }
 
   @Delete('/:id')
