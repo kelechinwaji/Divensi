@@ -33,9 +33,10 @@ export class TasksService {
       title,
       description,
       status: TaskStatus.OPEN,
+      user
     });
 
-    await this.tasksRepository.save(task, user);
+    await this.tasksRepository.save(task);
     return task;
   }
 
