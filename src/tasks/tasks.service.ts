@@ -7,6 +7,7 @@ import { Task } from './task.entity';
 import { Repository } from 'typeorm';
 import { User } from 'src/auth/user.entity';
 
+
 @Injectable()
 export class TasksService {
   constructor(
@@ -14,7 +15,8 @@ export class TasksService {
     private tasksRepository: Repository<Task>,
   ) {}
 
-  getTasks(filterDto: GetTaskFilterDto): Promise<Task[]> {
+  async getTasks(filterDto: GetTaskFilterDto,   user: User): Promise<Task[]> {
+  
     return this.tasksRepository.find();
   }
 
